@@ -1,75 +1,57 @@
-# React + TypeScript + Vite
+# BTS Frontend (Product Management Dashboard)
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A modern, responsive Product Management Dashboard built with **React**, **TypeScript**, **Vite**, and **Tailwind CSS v4**.
 
-Currently, two official plugins are available:
+## Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+- **Authentication**: Secure login flow using `AuthContext`.
+- **Product Catalog**: View products with an elegant, responsive grid layout.
+- **Search & Pagination**: Client-side searching and pagination (12 items per page).
+- **Add Product**: Interactive modal to add new products with dynamic category fetching and form validation.
+- **Premium UI/UX**: Designed with a modern aesthetic, micro-animations, and glassmorphism elements.
 
-## React Compiler
+## Prerequisites
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- Node.js v20+ (for local development)
+- Docker & Docker Compose (for containerized deployment)
 
-## Expanding the ESLint configuration
+## 💻 Running Locally
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+1. Install dependencies:
+   ```bash
+   npm install
+   ```
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+2. Start the development server:
+   ```bash
+   npm run dev
+   ```
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+3. Build for production:
+   ```bash
+   npm run build
+   ```
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+## 🐳 Running with Docker (Production Ready)
 
+This project includes a production-ready Docker setup using Node.js v22 and the `serve` package to properly handle React Router's client-side routing.
+
+1. Ensure Docker and Docker Compose are installed on your system.
+2. Build and start the container in detached mode:
+   ```bash
+   docker compose up -d --build
+   ```
+3. The application will be accessible at **[http://localhost:5174](http://localhost:5174)**.
+
+To stop the container, run:
+```bash
+docker compose down
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+## Tech Stack
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-
-```
+- **Core**: React + TypeScript
+- **Build Tool**: Vite
+- **Styling**: Tailwind CSS v4
+- **Routing**: React Router DOM
+- **Icons**: Lucide React
